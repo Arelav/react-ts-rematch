@@ -1,18 +1,13 @@
 import { createModel } from '@rematch/core';
 
 export interface ReposState {
-  test: string;
-  repos: [];
+  items?: [{ id: string }];
 }
 
 export const repos = createModel({
-  state: { test: 'test=====' },
+  state: { items: [] },
   reducers: {
-    // increment: (state: ReposState, payload: {}): ReposState => state
-    save: (state: ReposState, payload: []): ReposState => ({
-      test: 'test111',
-      repos: payload
-    })
+    save: (state: ReposState, payload: ReposState): ReposState => payload
   },
   effects: {
     async fetchRepos() {

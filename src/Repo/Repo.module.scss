@@ -1,0 +1,28 @@
+.repo {
+  list-style: none;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 21px;
+  background-color: white;
+  box-shadow: black 2px 2px 10px;
+  color: darkgrey;
+  text-align: initial;
+  display: flex;
+
+  span {
+    display: flex;
+    flex-basis: 240px;
+    justify-content: flex-end;
+    padding-right: 30px;
+  }
+
+  a {
+    color: dodgerblue;
+    text-decoration: none;
+    //margin-left: auto;
+    display: flex;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
