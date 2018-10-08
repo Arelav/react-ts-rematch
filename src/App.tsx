@@ -1,8 +1,28 @@
-import * as React from "react";
-import * as styles from "./App.module.css";
-import logo from "./logo.svg";
+import * as React from 'react';
+import { connect } from 'react-redux';
+import * as styles from './App.module.css';
+import logo from './logo.svg';
+import { Dispatch, RootState } from './store';
 
-class App extends React.Component {
+const mapState = ({ repos }: RootState) => ({
+  repos
+});
+
+const mapDispatch = (dispatch: Dispatch) => ({
+  fetchRepos: dispatch.repos.fetchRepos
+});
+
+type StateProps = ReturnType<typeof mapState>;
+
+type DispatchProps = ReturnType<typeof mapDispatch>
+
+type Props = StateProps & DispatchProps;
+
+class App extends React.Component<Props> {
+  public componentDidMount() {
+    this.props.fetchRepos()
+  }
+
   public render() {
     return (
       <div className={styles.app}>
@@ -19,10 +39,11 @@ class App extends React.Component {
           >
             Learn React
           </a>
+          {this.props.repos.test}
         </header>
       </div>
     );
   }
 }
 
-export default App;
+export default connect(mapState, mapDispatch)(App);
