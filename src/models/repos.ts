@@ -1,11 +1,11 @@
-import { createModel } from '@rematch/core';
+import { createModel, ModelConfig } from '@rematch/core';
 
 export interface ReposState {
-  items?: [{ id: string }];
+  items?: Array<{ id: string }>;
 }
 
-export const repos = createModel({
-  state: { items: [] },
+export const repos: ModelConfig<ReposState> = createModel({
+  state: {},
   reducers: {
     save: (state: ReposState, payload: ReposState): ReposState => payload
   },
