@@ -1,6 +1,6 @@
-import * as React from 'react';
-import * as styles from './App.css';
-import logo from './logo.svg';
+import * as React from "react";
+import * as styles from "./App.module.css";
+import logo from "./logo.svg";
 
 class App extends React.Component {
   public render() {
@@ -26,4 +26,3 @@ class App extends React.Component {
 }
 
 export default App;
-
