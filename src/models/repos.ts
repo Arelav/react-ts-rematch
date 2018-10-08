@@ -11,15 +11,20 @@ export const repos: ModelConfig<ReposState> = createModel({
   },
   effects: {
     async fetchRepos() {
-      const query =
-        'q=stars:>1+language:javascript' +
-        '&sort=stars&order=desc' +
-        '&type=Repositories';
+      try {
+        const query =
+          'q=stars:>1+language:javascript' +
+          '&sort=stars&order=desc' +
+          '&type=Repositories';
 
-      const response = await fetch(
-        `https://api.github.com/search/repositories?${query}`
-      );
-      this.save(await response.json());
+        const response = await fetch(
+          `https://api.github.com/search/repositories?${query}`
+        );
+        this.save(await response.json());
+      } catch (e) {
+        // tslint:disable-next-line:no-console
+        console.log(e);
+      }
     }
   }
 });
