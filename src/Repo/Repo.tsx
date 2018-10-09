@@ -14,7 +14,7 @@ interface OwnProps {
 type Props = OwnProps;
 
 const Repo: React.StatelessComponent<Props> = ({ repo }) => (
-  <li className={styles.repo}>
+  <li className={styles.repoItem}>
     <span>{repo.name}</span> <a href={repo.html_url}>{repo.html_url}</a>
   </li>
 );

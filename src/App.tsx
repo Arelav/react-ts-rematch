@@ -2,11 +2,14 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import * as styles from './App.module.css';
 import logo from './logo.svg';
-import { Dispatch, RootState } from './store';
+import { Dispatch, RootState, store } from './store';
 import Repo, { RepoItem } from './Repo/Repo';
 
-const mapState = ({ repos }: RootState) => ({
-  repos
+const firstRepo = store.select.repos.firstRepo;
+
+const mapState = (state: RootState) => ({
+  repos: state.repos,
+  firstRepo: firstRepo(state)
 });
 
 const mapDispatch = (dispatch: Dispatch) => ({
@@ -24,28 +27,20 @@ class App extends React.Component<Props> {
     this.props.fetchRepos();
   }
 
+  public componentDidUpdate() {
+    // tslint:disable-next-line:no-console
+    console.log(this.props.firstRepo);
+  }
+
   public render() {
     return (
       <div className={styles.app}>
         <header className={styles.header}>
           <img src={logo} className={styles.logo} alt="logo" />
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a
-            className={styles.link}
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
           <div>
             <ul className={styles.repos}>
               {this.props.repos.items &&
-                this.props.repos.items.map((repo: RepoItem) => (
-                  <Repo key={repo.id} repo={repo} />
-                ))}
+                this.props.repos.items.map((repo: RepoItem) => <Repo key={repo.id} repo={repo} />)}
             </ul>
           </div>
         </header>

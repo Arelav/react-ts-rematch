@@ -363,6 +363,7 @@ module.exports = {
               importLoaders: 1,
               sourceMap: shouldUseSourceMap,
               modules: true,
+              camelCase: true,
               getLocalIdent: getCSSModuleLocalIdent,
             }),
           },
@@ -391,6 +392,7 @@ module.exports = {
                 importLoaders: 2,
                 sourceMap: shouldUseSourceMap,
                 modules: true,
+                camelCase: true,
                 getLocalIdent: getCSSModuleLocalIdent,
               },
               'sass-loader'

@@ -1,4 +1,5 @@
 import { createModel, ModelConfig } from '@rematch/core';
+import { RootState } from '../store';
 
 export interface ReposState {
   items?: Array<{ id: string }>;
@@ -12,19 +13,19 @@ export const repos: ModelConfig<ReposState> = createModel({
   effects: {
     async fetchRepos() {
       try {
-        const query =
-          'q=stars:>1+language:javascript' +
-          '&sort=stars&order=desc' +
-          '&type=Repositories';
+        const query = 'q=stars:>1+language:javascript&sort=stars&order=desc&type=Repositories';
 
-        const response = await fetch(
-          `https://api.github.com/search/repositories?${query}`
-        );
+        const response = await fetch(`https://api.github.com/search/repositories?${query}`);
         this.save(await response.json());
       } catch (e) {
         // tslint:disable-next-line:no-console
         console.log(e);
       }
+    }
+  },
+  selectors: {
+    firstRepo() {
+      return (rootState: RootState) => rootState.repos.items && rootState.repos.items[0];
     }
   }
 });

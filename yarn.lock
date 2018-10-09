@@ -825,11 +825,18 @@
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
 "@rematch/core@^1.0.5":
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/@rematch/core/-/core-1.0.5.tgz#39a54bec17cd803a72fa8712777800474c63820e"
-  integrity sha512-DAL7QZXzt9r6mISKD940VeUFRn0Afkp/lU9JLoAS+A3+RrQ3YkyhJrhSaH21CpY/IGc10k5bdiLmJBglz3q6gw==
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/@rematch/core/-/core-1.0.6.tgz#84677e62111f7d720c3ec552c1f9916353f4cbc3"
+  integrity sha512-xz7tA3lJvMHbRXkKcjc4/fbTX3X7GjcfPojXq40Qdw5caF3B5tmu9lslpK9lcOhPk/nDeDqdF2WIrVQrFZAbRA==
   dependencies:
     redux "4.0.0"
+
+"@rematch/select@^2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@rematch/select/-/select-2.0.3.tgz#45f260baf26ee66fa10ec18e3d1964321e50e712"
+  integrity sha512-sESP1SEmWGaGc6vaad9CiJAiDPvX0CqLKNb5Ul4VIfMC7qju3DE8609/Flgw6U/BJS2tTxdQy/X+BYYcAb3JNA==
+  dependencies:
+    reselect "^3.0.1"
 
 "@svgr/core@^3.1.0":
   version "3.1.0"
@@ -8433,6 +8440,11 @@ requires-port@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
   integrity sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=
+
+reselect@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/reselect/-/reselect-3.0.1.tgz#efdaa98ea7451324d092b2b2163a6a1d7a9a2147"
+  integrity sha1-79qpjqdFEyTQkrKyFjpqHXqaIUc=
 
 resolve-cwd@^2.0.0:
   version "2.0.0"
