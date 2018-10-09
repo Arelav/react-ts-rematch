@@ -1,11 +1,19 @@
 import { init, RematchRootState } from '@rematch/core';
 import selectPlugin from '@rematch/select';
+// @ts-ignore
+import createRematchPersist from '@rematch/persist';
 
 import * as models from './models';
 
+const persistPlugin = createRematchPersist({
+  whitelist: ['repos'],
+  throttle: 5000,
+  version: 1
+});
+
 export const store = init({
   models,
-  plugins: [selectPlugin()]
+  plugins: [selectPlugin(), persistPlugin]
 });
 
 export type Store = typeof store;

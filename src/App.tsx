@@ -24,7 +24,9 @@ type Props = StateProps & DispatchProps;
 
 class App extends React.Component<Props> {
   public componentDidMount() {
-    this.props.fetchRepos();
+    if (!this.props.repos.items) {
+      this.props.fetchRepos();
+    }
   }
 
   public componentDidUpdate() {
