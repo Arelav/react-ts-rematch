@@ -1,6 +1,5 @@
 import { init, RematchRootState } from '@rematch/core';
 import selectPlugin from '@rematch/select';
-// @ts-ignore
 import createRematchPersist from '@rematch/persist';
 
 import * as models from './models';
